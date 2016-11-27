@@ -1,16 +1,25 @@
 <ion-content padding>
-	<h2>Welcome to INIT PAGE!</h2>
-	<p>
-		This starter project comes with simple tabs-based layout for apps
-		that are going to primarily use a Tabbed UI.
-	</p>
-	<p>
-		Take a look at the <code>src/pages/</code> directory to add or change tabs,
-		update any existing page or create new pages.
-	</p>
+	<div class="container">
+		<h1>{{ t.translator('Inital setup') }}</h1>
+		<form (ngSubmit)="submitData()" action="#">
+			<div class="form-group">
+				<label for="name">{{ t.translator('Nome') }}</label>
+				<input type="text" class="form-control" id="name" required>
+			</div>
 
-	<button (click)="test">
-		dddd
-	</button>
+			<div class="form-group">
+				<label for="email">{{ t.translator('Email') }}</label>
+				<input type="email" class="form-control" id="email" required>
+			</div>
+
+			<div class="form-group">
+				<label for="psw">{{ t.translator('Password') }}</label>
+				<input type="password" class="form-control" id="psw" required>
+			</div>
+
+
+			<button type="submit" class="btn btn-primary">{{ t.translator('Invia') }}</button>
+		</form>
+	</div>
 	
 </ion-content>

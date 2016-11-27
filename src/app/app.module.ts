@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
+
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
 import { MyApp } from './app.component';
 import { InitPage } from '../pages/init/init';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+
+import { TranslatorService } from './services/translator';
 
 @NgModule({
   declarations: [
@@ -13,7 +19,9 @@ import { TabsPage } from '../pages/tabs/tabs';
     TabsPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    FormsModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -22,6 +30,6 @@ import { TabsPage } from '../pages/tabs/tabs';
     HomePage,
     TabsPage
   ],
-  providers: []
+  providers: [ TranslatorService ]
 })
 export class AppModule {}

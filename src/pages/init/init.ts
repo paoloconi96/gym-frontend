@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 
+import { TranslatorService } from '../../app/services/translator';
+
 
 @Component({
 	selector: 'page-init',
@@ -10,11 +12,15 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class InitPage {
 
-	constructor(public navCtrl: NavController) {
+	constructor(public navCtrl: NavController, public t: TranslatorService) {
+
+	}
+
+	ngOnInit() {
 
 	}
 	
-	public testP = (test) => {
+	submitData() {
 		this.navCtrl.push(TabsPage);
 	}
 
