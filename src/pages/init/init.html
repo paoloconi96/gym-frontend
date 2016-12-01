@@ -4,17 +4,17 @@
 		<form (ngSubmit)="submitData()" action="#">
 			<div class="form-group">
 				<label for="name">{{ t.translator('Nome') }}</label>
-				<input type="text" class="form-control" id="name" required>
+				<input type="text" class="form-control" id="name" name="name" required [(ngModel)]="signupData.name">
 			</div>
 
 			<div class="form-group">
 				<label for="email">{{ t.translator('Email') }}</label>
-				<input type="email" class="form-control" id="email" required>
+				<input type="email" class="form-control" id="email" name="email" required [(ngModel)]="signupData.email">
 			</div>
 
 			<div class="form-group">
 				<label for="psw">{{ t.translator('Password') }}</label>
-				<input type="password" class="form-control" id="psw" required>
+				<input type="password" class="form-control" id="psw" name="psw" required [(ngModel)]="signupData.password">
 			</div>
 
 
