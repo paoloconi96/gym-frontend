@@ -18,13 +18,53 @@ export class InitPage {
 	}
 
 	private signupData = {}
+	private signinData = {}
+	private currentBlock = 0;
 
 	ngOnInit() {
 
 	}
 	
-	submitData() {
-		this.userService.signUp(this.signupData).subscribe(puttana => this.navCtrl.push(TabsPage));
+	submitData(formId) {
+		// signup 
+		if(formId == 1) {
+			
+			this.userService.signUp(this.signupData).subscribe(user => {
+				console.log(user);
+				// this.navCtrl.push(TabsPage);
+			}, err => {
+				console.log(err)
+			});
+
+		// signin
+		} else {
+			
+			this.userService.signIn(this.signinData).subscribe(user => {
+				console.log(user);
+				// this.navCtrl.push(TabsPage)
+			}, err => {
+				console.log(err)
+			});
+		
+		}
+	}
+
+	chooseForm(formId) {
+		this.currentBlock = formId;
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

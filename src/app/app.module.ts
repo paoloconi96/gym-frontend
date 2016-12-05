@@ -32,6 +32,9 @@ import { UserService } from './services/userService';
     HomePage,
     TabsPage
   ],
-  providers: [ TranslatorService, UserService ]
+  providers: [
+    TranslatorService,
+    UserService
+  ]
 })
 export class AppModule {}
