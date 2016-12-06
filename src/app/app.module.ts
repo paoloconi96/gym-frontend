@@ -4,6 +4,7 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Storage } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { InitPage } from '../pages/init/init';
@@ -34,7 +35,8 @@ import { UserService } from './services/userService';
   ],
   providers: [
     TranslatorService,
-    UserService
+    UserService,
+    Storage
   ]
 })
 export class AppModule {}

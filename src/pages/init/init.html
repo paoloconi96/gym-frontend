@@ -1,6 +1,7 @@
 <ion-content padding>
 	<div class="container">
 		<h1>{{ t.translator('Inital setup') }}</h1>
+		<span>{{ t.translator(responseError) }}</span>
 		<main [hidden]="!(currentBlock == 0)">
 			<button (click)="chooseForm(1)">Signup</button>
 			<button (click)="chooseForm(2)">Signin</button>

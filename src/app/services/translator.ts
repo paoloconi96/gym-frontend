@@ -18,11 +18,13 @@ export class TranslatorService {
 
 	private static translation = {
 		it: {
+			'': '',
 			'Inital setup': 'Configurazione iniziale',
 			'Nome': 'Nome',
 			'Invia': 'Invia',
 			'Email': 'Email',
-			'Password': 'Password'
+			'Password': 'Password',
+			'Utente già registrato': 'Utente già registrato',
 		}
 	}
 }
