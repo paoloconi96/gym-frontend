@@ -10,18 +10,17 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
-export class UserService {
+export class PlanService {
 
 	constructor(private http: Http, private storage:Storage) {}
 
 	// dichiaro gli URL
-	private signupURL = rootScope.serverUrl + '/users';
-	private signinURL = rootScope.serverUrl + '/users/login';
+	private createExerciseURL = rootScope.serverUrl + '/plan/exercise/create';
 
-	signUp(data): any {
-		return this.http.post(this.signupURL, data)
+	createExercise(data): any {
+		return this.http.post(this.createExerciseURL, data)
 			.map((res:Response) => {
-				let user = res.json();
+				let plan = res.json();
 
 				if(user['id']) {
 					this.setToken(user['token']);
@@ -52,30 +51,6 @@ export class UserService {
 	// salvo il token nella memoria locale per il postriavvio dell'app
 	setToken(token) {
 		this.storage.set('user-token', token);
-	}
-
-	logout(): Promise<Object> {
-		return this.storage.remove('user-token').then((val) => {
-       		return 'ok';
-       	});
-
-		// COGLIONE; FAI IL LOGOUT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
-		// this.http.post(this.signupURL, data)
-		// 	.map((res:Response) => res.json())
-		// 	.catch((error:any) => Observable.throw(error.json().error || 'Server error'))
-		// 	.subscribe(user => {
-		// 		if(user['id']) {
-		// 			this.setToken(user['token']);
-		// 			return { status: 'ok' };
-		// 		} else if(user['status'] == 'ko' && user['code'] == 1) {
-		// 			return { status: 'ko', message: 'Utente già registrato' };
-		// 		}
-		// 	}, err => {
-		// 		return { status: 'ko', message: err };
-		// 	});
 	}
 
 }

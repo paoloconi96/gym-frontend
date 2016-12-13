@@ -25,6 +25,20 @@ export class TranslatorService {
 			'Email': 'Email',
 			'Password': 'Password',
 			'Utente già registrato': 'Utente già registrato',
+			'Si è verificato un errore, riprova più tardi': 'Si è verificato un errore, riprova più tardi',
+			'La mia scheda': 'La mia scheda',
+			'Peso / altezza': 'Peso / altezza',
+			'Nuovo esercizio': 'Nuovo esercizio',
+			'Aggiunta esercizio': 'Aggiunta esercizio',
+			'Tipo di esercizio': 'Tipo di esercizio',
+			'A tempo': 'A tempo',
+			'A ripetizioni': 'A ripetizioni',
+			'Titolo': 'Titolo',
+			'Durata': 'Durata',
+			'Passaggio successivo': 'Passaggio successivo',
+			'Peso': 'Peso',
+			'Ripetizioni': 'Ripetizioni',
+			'N° Serie': 'N°Serie',
 		}
 	}
 }

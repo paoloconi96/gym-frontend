@@ -10,33 +10,41 @@ import { MyApp } from './app.component';
 import { InitPage } from '../pages/init/init';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { FirstPlanPage } from '../pages/firstplan/firstplan';
+import { AddExercisePage } from '../pages/addexercise/addexercise';
 
 import { TranslatorService } from './services/translator';
 import { UserService } from './services/userService';
+import { PlanService } from './services/planService';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    InitPage,
-    HomePage,
-    TabsPage
-  ],
-  imports: [
-    IonicModule.forRoot(MyApp),
-    FormsModule,
-    HttpModule
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    InitPage,
-    HomePage,
-    TabsPage
-  ],
-  providers: [
-    TranslatorService,
-    UserService,
-    Storage
-  ]
+	declarations: [
+		MyApp,
+		InitPage,
+		HomePage,
+		TabsPage,
+		FirstPlanPage,
+		AddExercisePage
+	],
+	imports: [
+		IonicModule.forRoot(MyApp),
+		FormsModule,
+		HttpModule
+	],
+	bootstrap: [IonicApp],
+	entryComponents: [
+		MyApp,
+		InitPage,
+		HomePage,
+		TabsPage,
+		FirstPlanPage,
+		AddExercisePage
+	],
+	providers: [
+		TranslatorService,
+		UserService,
+		PlanService,
+		Storage
+	]
 })
 export class AppModule {}

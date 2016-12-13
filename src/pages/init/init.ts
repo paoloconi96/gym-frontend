@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import { FirstPlanPage } from '../firstplan/firstplan';
 
 import { TranslatorService } from '../../app/services/translator';
 import { UserService } from '../../app/services/userService';
@@ -35,18 +36,21 @@ export class InitPage {
 		// signup 
 		if(formId == 1) {
 			
-			let response = this.userService.signUp(this.signupData);
-
-			switch(response.status) {
-				case 'ok': 
-					this.navCtrl.push(TabsPage);
-					break;
-				case 'ko':
-					this.responseError = response.message;
-					break;
-				default:
-					this.responseError = 'Si è verificato un errore, riprova più tardi.';
-			}
+			this.userService.signUp(this.signupData)
+				.subscribe(user => {
+					switch(user.status) {
+						case 'ok': 
+							this.navCtrl.push(FirstPlanPage);
+							break;
+						case 'ko':
+							this.responseError = user.message;
+							break;
+						default:
+							this.responseError = 'Si è verificato un errore, riprova più tardi';
+					}
+				}, err => {
+					return { status: 'ko', message: err };
+				});
 
 		// signin
 		} else {
@@ -61,7 +65,7 @@ export class InitPage {
 							this.responseError = val.message;
 							break;
 						default:
-							this.responseError = 'Si è verificato un errore, riprova più tardi.';
+							this.responseError = 'Si è verificato un errore, riprova più tardi';
 					}
 				}, err => {});
 		

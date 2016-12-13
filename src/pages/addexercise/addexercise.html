@@ -1,0 +1,42 @@
+<ion-content padding>
+	<div class="container">
+		<h1>{{ t.translator('Aggiunta esercizio') }}</h1>
+		<button (click)="backToList()">back</button>
+		<div>
+			<h2>{{ t.translator('Tipo di esercizio') }}</h2>
+			<span (click)="chooseForm(1)">{{ t.translator('A tempo') }}</span>
+			<span (click)="chooseForm(2)">{{ t.translator('A ripetizioni') }}</span>
+		</div>
+		<form action="#" (ngSubmit)="submitData(1)" [hidden]="!(currentBlock == 1)">
+			<div class="form-group">
+				<label for="time-title">{{ t.translator('Titolo') }}</label>
+				<input type="text" class="form-control" id="time-title" name="time-title" required [(ngModel)]="timeBased.title">
+			</div>
+			<div class="form-group">
+				<label for="time-length">{{ t.translator('Durata') }}</label>
+				<input type="number" class="form-control" id="time-length" name="time-length" required [(ngModel)]="timeBased.length">
+			</div>
+			<button type="submit" class="btn btn-primary">{{ t.translator('Passaggio successivo') }}</button>
+		</form>
+		<form action="#" (ngSubmit)="submitData(2)" [hidden]="!(currentBlock == 2)">
+			<div class="form-group">
+				<label for="repetition-title">{{ t.translator('Titolo') }}</label>
+				<input type="text" class="form-control" id="repetition-title" name="repetition-title" required [(ngModel)]="repetitionBased.title">
+			</div>
+			<div class="form-group">
+				<label for="repetition-weight">{{ t.translator('Peso') }}</label>
+				<input type="number" class="form-control" id="repetition-weight" name="repetition-weight" required [(ngModel)]="repetitionBased.weight">
+			</div>
+			<div class="form-group">
+				<label for="repetition-repeat">{{ t.translator('Ripetizioni') }}</label>
+				<input type="number" class="form-control" id="repetition-repeat" name="repetition-repeat" required [(ngModel)]="repetitionBased.repeat">
+			</div>
+			<div class="form-group">
+				<label for="repetition-series">{{ t.translator('N° Serie') }}</label>
+				<input type="number" class="form-control" id="repetition-series" name="repetition-series" required [(ngModel)]="repetitionBased.series">
+			</div>
+			<button type="submit" class="btn btn-primary">{{ t.translator('Passaggio successivo') }}</button>
+		</form>
+	</div>
+	
+</ion-content>
