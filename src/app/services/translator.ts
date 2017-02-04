@@ -27,6 +27,7 @@ export class TranslatorService {
 			'Utente già registrato': 'Utente già registrato',
 			'Si è verificato un errore, riprova più tardi': 'Si è verificato un errore, riprova più tardi',
 			'La mia scheda': 'La mia scheda',
+			'Le mie schede': 'Le mie schede',
 			'Peso / altezza': 'Peso / altezza',
 			'Nuovo esercizio': 'Nuovo esercizio',
 			'Aggiunta esercizio': 'Aggiunta esercizio',
@@ -39,6 +40,8 @@ export class TranslatorService {
 			'Peso': 'Peso',
 			'Ripetizioni': 'Ripetizioni',
 			'N° Serie': 'N°Serie',
+			'Nuova scheda': 'Nuova scheda',
+			'Aggiungi scheda': 'Aggiungi scheda'
 		}
 	}
 }

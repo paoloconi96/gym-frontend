@@ -11,6 +11,7 @@ import { InitPage } from '../pages/init/init';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { FirstPlanPage } from '../pages/firstplan/firstplan';
+import { PlanPage } from '../pages/plan/plan';
 import { AddExercisePage } from '../pages/addexercise/addexercise';
 
 import { TranslatorService } from './services/translator';
@@ -24,6 +25,7 @@ import { PlanService } from './services/planService';
 		HomePage,
 		TabsPage,
 		FirstPlanPage,
+		PlanPage,
 		AddExercisePage
 	],
 	imports: [
@@ -38,6 +40,7 @@ import { PlanService } from './services/planService';
 		HomePage,
 		TabsPage,
 		FirstPlanPage,
+		PlanPage,
 		AddExercisePage
 	],
 	providers: [

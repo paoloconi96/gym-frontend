@@ -3,17 +3,16 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { AddExercisePage } from '../addexercise/addexercise';
-import { PlanPage } from '../plan/plan';
 
 import { TranslatorService } from '../../app/services/translator';
 import { UserService } from '../../app/services/userService';
 
 
 @Component({
-	selector: 'page-firstplan',
-	templateUrl: 'firstplan.html'
+	selector: 'page-plan',
+	templateUrl: 'plan.html'
 })
-export class FirstPlanPage {
+export class PlanPage {
 
 	constructor(public navCtrl: NavController, public t: TranslatorService, private userService: UserService) {
 
@@ -32,8 +31,8 @@ export class FirstPlanPage {
 		this.navCtrl.push(AddExercisePage);
 	}
 
-	newPlan() {
-		this.navCtrl.push(PlanPage);
+	newExercise() {
+		this.navCtrl.push(AddExercisePage);
 	}
 
 }

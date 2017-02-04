@@ -27,7 +27,11 @@ export class InitPage {
 		this.userService.doAutoLogin().then((val) => {
 			// se il token è definito faccio l'autologin
 			if(val) {
-				this.navCtrl.push(TabsPage)
+				if(val['current_plan_missing']) {
+					this.navCtrl.push(FirstPlanPage);
+				} else {
+					this.navCtrl.push(TabsPage);
+				}
 			};
 		})
 	}

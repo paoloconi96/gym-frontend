@@ -19,12 +19,21 @@ export class UserService {
 	private signinURL = rootScope.serverUrl + '/users/login';
 
 	signUp(data): any {
+		// esegou il signup
 		return this.http.post(this.signupURL, data)
 			.map((res:Response) => {
 				let user = res.json();
 
+				// se l'utente è stato creato correttamente
 				if(user['id']) {
+					// salvo il token il localStorage per l'autologin
 					this.setToken(user['token']);
+
+					// se non ha un current plan allora deve ancora crearlo, scrivo in localStorage
+					if(!user['id_current_plan']) {
+						this.setCurrentPlanMissing(1);
+					}
+
 					return { status: 'ok' };
 				} else if(user['status'] == 'ko' && user['code'] == 1) {
 					return { status: 'ko', message: 'Utente già registrato' };
@@ -46,12 +55,26 @@ export class UserService {
 	}
 
 	doAutoLogin(): Promise<Object> {
-		return this.storage.get('user-token');
+		var storage = this.storage;
+		return storage.get('user-token').then(function(user_token) {
+			if(user_token) {
+				return storage.get('current-plan-missing').then(function(current_plan_missing) {
+					return Promise.resolve({ 'user_token': user_token, 'current_plan_missing': current_plan_missing });	
+				});
+			} else {
+				return Promise.resolve(user_token);
+			}
+		});
 	}
 	
 	// salvo il token nella memoria locale per il postriavvio dell'app
 	setToken(token) {
 		this.storage.set('user-token', token);
+	}
+
+	// salvo il token nella memoria locale per il postriavvio dell'app
+	setCurrentPlanMissing(isMissing) {
+		this.storage.set('current-plan-missing', isMissing);
 	}
 
 	logout(): Promise<Object> {

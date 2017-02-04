@@ -18,39 +18,39 @@ export class PlanService {
 	private createExerciseURL = rootScope.serverUrl + '/plan/exercise/create';
 
 	createExercise(data): any {
-		return this.http.post(this.createExerciseURL, data)
-			.map((res:Response) => {
-				let plan = res.json();
+		// return this.http.post(this.createExerciseURL, data)
+		// 	.map((res:Response) => {
+		// 		let plan = res.json();
 
-				if(user['id']) {
-					this.setToken(user['token']);
-					return { status: 'ok' };
-				} else if(user['status'] == 'ko' && user['code'] == 1) {
-					return { status: 'ko', message: 'Utente già registrato' };
-				}
-			})
-			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+		// 		if(user['id']) {
+		// 			this.setToken(user['token']);
+		// 			return { status: 'ok' };
+		// 		} else if(user['status'] == 'ko' && user['code'] == 1) {
+		// 			return { status: 'ko', message: 'Utente già registrato' };
+		// 		}
+		// 	})
+		// 	.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
 
 	signIn(data): any {
-		return this.http.post(this.signinURL, data)
-			.map((res:Response) => {
-				res = res.json();
-				if(res['id']) {
-					this.setToken(res['token']);
-					return { status: 'ok' };
-				}
-			})
-			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+		// return this.http.post(this.signinURL, data)
+		// 	.map((res:Response) => {
+		// 		res = res.json();
+		// 		if(res['id']) {
+		// 			this.setToken(res['token']);
+		// 			return { status: 'ok' };
+		// 		}
+		// 	})
+		// 	.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
 
-	doAutoLogin(): Promise<Object> {
-		return this.storage.get('user-token');
+	doAutoLogin(): void {
+		// return this.storage.get('user-token');
 	}
 	
 	// salvo il token nella memoria locale per il postriavvio dell'app
 	setToken(token) {
-		this.storage.set('user-token', token);
+		// this.storage.set('user-token', token);
 	}
 
 }
